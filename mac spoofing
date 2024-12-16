@@ -1,0 +1,39 @@
+import time
+import random
+
+# Generate a list of MAC addresses
+def generate_mac_addresses(n):
+    """
+    Generate a list of random MAC addresses.
+
+    Args:
+        n (int): Number of MAC addresses to generate.
+
+    Returns:
+        list: A list of randomly generated MAC addresses.
+    """
+    mac_addresses = []
+    for _ in range(n):
+        mac = ':'.join(['{:02x}'.format(random.randint(0, 255)) for _ in range(6)])
+        mac_addresses.append(mac)
+    return mac_addresses
+
+# Function to simulate handling MAC addresses with associated IPs
+def handle_mac_addresses(mac_addresses):
+    """
+    Simulate handling MAC addresses with associated IP addresses.
+
+    Args:
+        mac_addresses (list): List of MAC addresses to process.
+    """
+    for mac in mac_addresses:
+        # Simulate the associated IP address (for demonstration)
+        ip_address = f"192.168.1.{random.randint(1, 254)}"
+        print(f"Handling MAC: {mac} with IP: {ip_address}")
+        time.sleep(10)  # Wait for 10 seconds
+
+if __name__ == "__main__":
+    # Generate 1000 random MAC addresses
+    mac_addresses = generate_mac_addresses(1000)
+    # Handle the generated MAC addresses
+    handle_mac_addresses(mac_addresses)
